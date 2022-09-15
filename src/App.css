@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #FFF;
+	font-family: "Inter";
+	text-decoration: none;
+	font-size: 24pxpx;
+	letter-spacing: 0.5px;
+}
+
+body {
+    width: 100vw;
+    background-color: #070E22;
+    background-image: url('https://github.githubassets.com/images/modules/site/home/hero-glow.svg');
+    background-size: 170% auto;
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+}

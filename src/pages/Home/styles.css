@@ -1,7 +1,120 @@
-.home-container {
-    padding: 40px;
+.section-container {
+    width: 100%;
+    padding-top: 20px;
 }
 
-.start-button {
-    color: #fff;
+main {
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.main-content-left {
+    width: 100%;
+    height: auto;
+    padding: 5px 20px;
+
+}
+
+.main-content-left-buttom-top {
+    height: auto;
+    width: 100%;
+    padding: 5px 17px;
+    border-top-left-radius: 75px;
+    border-top-right-radius: 75px;
+    border-bottom-left-radius: 75px;
+    border-bottom-right-radius: 75px;
+    margin-bottom: 20px;
+    border: 1px solid #3F4B5B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: -0.015em;
+    background-color: rgba(1, 7, 18, 0.8);
+    background-image: linear-gradient(to right, rgba(1, 7, 18, 1), rgba(1, 7, 18, 1), rgba(1, 50, 117, 0.3));
+}
+
+.main-content-left-buttom-top img {
+    width: 35px;
+    height: auto;
+}
+
+.main-content-left-buttom-top-text {
+    padding: 0 16px;
+}
+
+.main-content-left-buttom-top-text h1 {
+    font-size: 0.85em;
+    font-weight: bolder;
+    margin-bottom: 0;
+    text-align: initial;
+}
+
+.main-content-left-buttom-top-text #parag {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    text-align: initial;
+}
+
+
+.main-content-left-buttom-top svg {
+    fill: #FFF;
+    width: 20px;
+    height: auto;
+}
+
+.main-content-right {
+    width: 100%;
+    height: 250px;
+
+}
+
+.main-content-left h2 {
+    font-weight: 700;
+    letter-spacing: -0.040em;
+    font-size: 2.3em;
+    margin-bottom: 0;
+    padding: 0 0;
+}
+
+.main-content-left p {
+    color: #657B97;
+    margin-top: 25px;
+    font-size: 18px;
+}
+
+.main-content-left-button {
+    width: auto;
+    background-color: #00A957;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.main-content-bottom {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.main-content-bottom-avatar {
+    width: 100%;
+    height: 200px;
+    background-color: #FFF;
+    margin-top: -6px;
+}
+
+.main-content-bottom-avatar img {
+    margin-top: -200px;
+    width: 300px;
+    height: auto;
 }
