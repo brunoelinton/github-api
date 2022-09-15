@@ -9,9 +9,7 @@ const Home = () => {
             <img src="../../../src/assets/images/gitbotao.png" alt="" />
             <div className="main-content-left-buttom-top-text">
               <h1>Github Universe: A global developer event</h1>
-              <p id="parag">
-                Register now to get early bird passes 20% off.
-              </p>
+              <p id="parag">Register now to get early bird passes 20% off.</p>
             </div>
             <a href="">
               <svg
@@ -30,10 +28,7 @@ const Home = () => {
             </a>
           </div>
           <div className="main-content-left-text">
-            <h2>
-              Let's build
-              from here,
-            </h2>
+            <h2>Let's build from here,</h2>
             <h2>together.</h2>
             <p>
               The complete developer platform to build, scale, and deliver
@@ -57,8 +52,10 @@ const Home = () => {
         >
           <path d="M0 40h1680V30S1340 0 840 0 0 30 0 30z" fill="#fff"></path>
         </svg>
-        <div className="main-content-bottom-avatar">
-          <img src="../../../src/assets/images/avatar.webp" alt="" />
+        <div className="main-content-bottom-image">
+          <div className="main-content-bottom-avatar">
+            <img src="../../../src/assets/images/avatar.webp" alt="" />
+          </div>
         </div>
       </div>
     </section>

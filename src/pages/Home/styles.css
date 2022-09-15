@@ -7,16 +7,15 @@ main {
     max-width: 1200px;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     text-align: center;
-    margin: 0 auto;
 }
 
 .main-content-left {
     width: 100%;
     height: auto;
     padding: 5px 20px;
-
 }
 
 .main-content-left-buttom-top {
@@ -70,7 +69,6 @@ main {
 .main-content-right {
     width: 100%;
     height: 250px;
-
 }
 
 .main-content-left h2 {
@@ -78,7 +76,7 @@ main {
     letter-spacing: -0.040em;
     font-size: 2.3em;
     margin-bottom: 0;
-    padding: 0 0;
+    padding: 0 50px;
 }
 
 .main-content-left p {
@@ -106,6 +104,12 @@ main {
     text-align: center;
 }
 
+.main-content-bottom-image {
+    width: 100%;
+    height: auto;
+    background-color: #F00;
+}
+
 .main-content-bottom-avatar {
     width: 100%;
     height: 200px;
@@ -117,4 +121,59 @@ main {
     margin-top: -200px;
     width: 300px;
     height: auto;
+}
+
+@media (min-width: 768px) {
+    .main-content-left {
+        width: 550px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        background-size: 170% 140%;
+    }
+
+    main {
+        margin: 0 auto;
+    }
+
+    .main-content-left {
+        width: 50%;
+        height: 360px;
+    }
+
+    .main-content-right {
+        width: 50%;
+        height: 360px;
+    } 
+
+    .main-content-bottom {
+        text-align: right;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        background-size: 170% 140%;
+    }
+    
+    .main-content-bottom-image {
+        width: 100%;
+        height: auto;
+        background-color: #FFF;
+    }
+
+    .main-content-bottom-avatar {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .main-content-bottom-avatar img {
+        margin-top: -200px;
+        width: 300px;
+        height: auto;
+    }
 }
