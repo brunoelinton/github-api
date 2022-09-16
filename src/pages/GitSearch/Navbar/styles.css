@@ -1,0 +1,51 @@
+ul {
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+li .teste {
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+}
+
+li .teste:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+li svg {
+    fill: rgba(255, 255, 255, 0.5);
+    margin-right: 8px;
+}
+
+li a {
+    color: #BDC4CE;
+    width: 100%;
+    padding: 5px;
+}
+
+li a:hover {
+    color: #BDC4CE;
+}
+
+.active {
+    font-weight: 500;
+    border-bottom: 2px solid #FF7A5D;
+    padding-bottom: 10px;
+    color: #BDC4CE;
+}
+
+.nav-container {
+    width: 100%;
+    height: 50px;
+    color: unset;
+}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 const Home = () => {
@@ -17,7 +18,6 @@ const Home = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-arrow-right-circle"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -36,7 +36,9 @@ const Home = () => {
             </p>
           </div>
           <div className="main-content-left-button">
-            <span>Iniciar</span>
+            <Link to="/gitsearch">
+              <span>Iniciar</span>
+            </Link>
           </div>
 
           <hr />

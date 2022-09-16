@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 const NavBar = () => {
@@ -5,9 +6,9 @@ const NavBar = () => {
     <header>
       <nav className="nav-container">
         <div className="links git-text-container">
-          <a href="link">
+          <Link to="/">
             <span>Github API</span>
-          </a>
+            </Link>
         </div>
         <div className="links logo-container">
           <svg
@@ -25,8 +26,8 @@ const NavBar = () => {
           </svg>
         </div>
         <div className="links sign-container">
-          <a href="link"  className="sign">
-            <span>Sign</span>
+          <a href="https://github.com/brunoelinton"  className="profile" target="_blank">
+            <span>My Profile</span>
           </a>
         </div>
       </nav>
