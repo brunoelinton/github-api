@@ -42,6 +42,7 @@ const Navbar = () => {
                 ></path>
               </svg>
               Repositórios
+              <div id="repositories">32</div>
             </NavLink>
           </div>
         </li>
