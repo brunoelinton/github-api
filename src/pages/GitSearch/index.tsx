@@ -3,18 +3,25 @@ import axios from 'axios'
 import Navbar from './Navbar'
 
 import './styles.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Perfil from '../../types/Perfil'
 import Repository from '../../types/Repository'
 import NameRepo_Url_Lang from '../../types/Repository'
+
+type Reposit = {
+  id: string
+  name: string
+  url: string
+  language: string
+}
 
 type FormData = {
   perfil: string
 }
 
 const GitSearch = () => {
-  const [perfil, setPerfil] = useState<Perfil>();
-  const [respositorio, setRepositorio] = useState<NameRepo_Url_Lang>();
+  const [perfil, setPerfil] = useState<Perfil>()
+  const [repositorio, setRepositorio] = useState<Reposit[]>([])
 
   const [formData, setFormData] = useState<FormData>({
     perfil: '',
@@ -40,16 +47,22 @@ const GitSearch = () => {
         console.log(error)
       })
 
-      axios
+    axios
       .get(`https://api.github.com/users/${formData.perfil}/repos`)
       .then((response) => {
-        setRepositorio(response.data)       
+        setRepositorio(response.data)
         console.log(response.data)
       })
       .catch((error) => {
         setPerfil(undefined)
         console.log(error)
       })
+
+    repositorio?.map((repo) => {
+      console.log(repo.name)
+      console.log(repo.url)
+      console.log(repo.language)
+    })
   }
 
   return (
@@ -105,7 +118,8 @@ const GitSearch = () => {
                   </svg>
                   <span className="numbers">{perfil.followers} </span>
                   <span>followers </span>
-                  <span className="numbers">. {perfil.following}</span> <span>following</span>
+                  <span className="numbers">. {perfil.following}</span>{' '}
+                  <span>following</span>
                 </div>
               </div>
             </div>
@@ -114,19 +128,40 @@ const GitSearch = () => {
               <div className="git-search-content-profile">
                 <Switch>
                   <Route path="/gitsearch/perfil">
-                    <div className="git-search-content-profile-container">
+                    <div className="git-search-content-data-container-profile">
                       <p>{perfil.login} / README.md</p>
                       <h4>Olá, eu sou o (a) {perfil.name}👋</h4>
                       <ul>
-                        <li><span>😊</span> Perfil: {perfil.html_url}</li>
-                        <li><span>🗺️</span> Localidade: {perfil.location}</li>
-                        <li><span>🔗</span> API Url: {perfil.url}</li>      
-                        <li><span>📖</span> Bio: {perfil.bio}</li>
+                        <li>
+                          <span>😊</span> Perfil: {perfil.html_url}
+                        </li>
+                        <li>
+                          <span>🗺️</span> Localidade: {perfil.location}
+                        </li>
+                        <li>
+                          <span>🔗</span> API Url: {perfil.url}
+                        </li>
+                        <li>
+                          <span>📖</span> Bio: {perfil.bio}
+                        </li>
                       </ul>
                     </div>
                   </Route>
                   <Route path="/gitsearch/repositorios">
-                    <h1>Repositórios</h1>
+                    <div className="git-search-content-data-container-repository">
+                      {repositorio?.map((repo) => (
+                        <div className="card" key={repo.id}>
+                          <div className="card-content-top">
+                            <span className="name-repo">{repo.name}</span>
+                            <span className="visibility">Público</span>
+                          </div>
+                          <div className="card-content-bottom">
+                            <div className="icon"></div>
+                            <span className="language">{repo.language}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </Route>
                 </Switch>
               </div>
