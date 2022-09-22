@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import * as THREE from 'three';
 import gsap from 'gsap';
 import vertexShader from '../../assets/shaders/vertex.glsl';
-import fragmentShader from '../..assets/shaders/fragment.glsl';
+import fragmentShader from '../../assets/shaders/fragment.glsl';
 import atmosphereVertexShader from '../../assets/shaders/atmosphereVertex.glsl';
 import atmosphereFragmentShader from '../../assets/shaders/atmosphereFragment.glsl';
 import './styles.css';
