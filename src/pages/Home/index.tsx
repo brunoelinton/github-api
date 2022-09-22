@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Avatar } from '../../../src/assets/images/avatar.svg';
 import * as THREE from 'three';
 import gsap from 'gsap';
 import vertexShader from '../../../src/assets/shaders/vertex.glsl';
@@ -226,7 +225,7 @@ const Home = () => {
         </svg>
         <div className="main-content-bottom-image">
           <div className="main-content-bottom-avatar">
-            <img src="../../../src/assets/images/avatar.svg" alt="" />
+            <img src="../../../src/assets/images/avatar.png" alt="" />
           </div>
         </div>
       </div>
