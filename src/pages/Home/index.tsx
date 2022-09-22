@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import * as THREE from 'three'
-import gsap from 'gsap'
-import vertexShader from '../../../src/assets/shaders/vertex.glsl'
-import fragmentShader from '../../../src/assets/shaders/fragment.glsl'
-import atmosphereVertexShader from '../../../src/assets/shaders/atmosphereVertex.glsl'
-import atmosphereFragmentShader from '../../../src/assets/shaders/atmosphereFragment.glsl'
-import countries from '../../../src/assets/countries.json'
-import './styles.css'
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ReactComponent as Avatar } from '../../../src/assets/images/avatar.svg';
+import * as THREE from 'three';
+import gsap from 'gsap';
+import vertexShader from '../../../src/assets/shaders/vertex.glsl';
+import fragmentShader from '../../../src/assets/shaders/fragment.glsl';
+import atmosphereVertexShader from '../../../src/assets/shaders/atmosphereVertex.glsl';
+import atmosphereFragmentShader from '../../../src/assets/shaders/atmosphereFragment.glsl';
+import './styles.css';
 
 const Home = () => {
   const globe = () => {
@@ -226,7 +226,7 @@ const Home = () => {
         </svg>
         <div className="main-content-bottom-image">
           <div className="main-content-bottom-avatar">
-            <img src="../../../src/assets/images/avatar.webp" alt="" />
+            <img src="../../../src/assets/images/avatar.svg" alt="" />
           </div>
         </div>
       </div>
