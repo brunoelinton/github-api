@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as THREE from 'three';
 import gsap from 'gsap';
+import Avatar from '../../assets/images/avatar.png';
+import IconTop from '../../assets/images/gitbotao.png';
+import Globe from '../../assets/images/globe.jpg';
 import vertexShader from '../../assets/shaders/vertex.glsl';
 import fragmentShader from '../../assets/shaders/fragment.glsl';
 import atmosphereVertexShader from '../../assets/shaders/atmosphereVertex.glsl';
@@ -172,7 +175,7 @@ const Home = () => {
       <main>
         <div className="main-content-left">
           <div className="main-content-left-buttom-top">
-            <img src="../../assets/images/gitbotao.png" alt="" />
+            <img src={IconTop} alt="" />
             <div className="main-content-left-buttom-top-text">
               <h1>Github Universe: A global developer event</h1>
               <p id="parag">Register now to get early bird passes 20% off.</p>
@@ -225,7 +228,7 @@ const Home = () => {
         </svg>
         <div className="main-content-bottom-image">
           <div className="main-content-bottom-avatar">
-            <img src="../../assets/images/avatar.png" alt="" />
+            <img src={Avatar} alt="" />
           </div>
         </div>
       </div>
