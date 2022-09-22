@@ -17,6 +17,20 @@ const Routes = () => (
       </Route>
     </Switch>
   </BrowserRouter>
+  /*
+  <BrowserRouter>
+    <NavBar />
+    <Switch>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Redirect from="/gitsearch" to="/gitsearch/perfil" exact/>
+      <Route path="/gitsearch" >
+        <GitSearch />
+      </Route>
+    </Switch>
+  </BrowserRouter>
+  */
 );
 
 export default Routes;

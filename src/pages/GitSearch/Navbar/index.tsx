@@ -1,12 +1,16 @@
 import { NavLink } from 'react-router-dom'
 import './styles.css'
 
-const Navbar = () => {
+type Props = {
+  quantity: number;
+}
+
+const Navbar = ( { quantity } : Props) => {
   return (
-    <nav className="nav-container">
+    <nav>
       <ul>
         <li>
-          <div className="teste">
+          <div className="navlink">
             <NavLink to="/gitsearch/perfil">
               <svg
                 aria-hidden="true"
@@ -26,7 +30,7 @@ const Navbar = () => {
           </div>
         </li>
         <li>
-          <div className="teste">
+          <div className="navlink">
             <NavLink to="/gitsearch/repositorios">
               <svg
                 aria-hidden="true"
@@ -42,7 +46,7 @@ const Navbar = () => {
                 ></path>
               </svg>
               Repositórios
-              <div id="repositories">32</div>
+              <div id="repositories">{quantity}</div>
             </NavLink>
           </div>
         </li>

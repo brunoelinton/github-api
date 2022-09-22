@@ -1,7 +1,175 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import * as THREE from 'three'
+import gsap from 'gsap'
+import vertexShader from '../../../src/assets/shaders/vertex.glsl'
+import fragmentShader from '../../../src/assets/shaders/fragment.glsl'
+import atmosphereVertexShader from '../../../src/assets/shaders/atmosphereVertex.glsl'
+import atmosphereFragmentShader from '../../../src/assets/shaders/atmosphereFragment.glsl'
+import countries from '../../../src/assets/countries.json'
 import './styles.css'
 
 const Home = () => {
+  const globe = () => {
+    const canvasContainer = document.querySelector(
+      '#canvasContainer',
+    ) as HTMLElement | null
+    if (!canvasContainer) return
+
+    console.log(canvasContainer)
+
+    const scene = new THREE.Scene()
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      canvasContainer.offsetWidth / canvasContainer.offsetHeight,
+      0.1,
+      1000,
+    )
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      canvas: document.querySelector('canvas'),
+      alpha: true,
+    })
+
+    renderer.setSize(canvasContainer.offsetWidth, canvasContainer.offsetHeight)
+    renderer.setPixelRatio(window.devicePixelRatio)
+    canvasContainer.appendChild(renderer.domElement)
+
+    const sphere = new THREE.Mesh(
+      new THREE.SphereGeometry(5, 50, 50),
+      new THREE.ShaderMaterial({
+        vertexShader,
+        fragmentShader,
+        uniforms: {
+          globeTexture: {
+            value: new THREE.TextureLoader().load(
+              '../../../src/assets/images/globe.jpg',
+            ),
+          },
+        },
+      }),
+    )
+
+    
+    scene.add(sphere)
+
+    // CREATE ATMOSPHERE
+    const atmosphere = new THREE.Mesh(
+      new THREE.SphereGeometry(5, 50, 50),
+      new THREE.ShaderMaterial({
+        vertexShader: atmosphereVertexShader,
+        fragmentShader: atmosphereFragmentShader,
+        blending: THREE.AdditiveBlending,
+        side: THREE.BackSide,
+      }),
+    )
+    
+    atmosphere.scale.set(1.1, 1.1, 1.1)
+    atmosphere.position.x = -1
+    scene.add(atmosphere)
+
+    const group = new THREE.Group()
+    group.add(sphere)
+    scene.add(group)
+
+    const starGeometry = new THREE.BufferGeometry()
+    const starMaterial = new THREE.PointsMaterial({
+      color: 0xffffff,
+    })
+
+    /*
+    const starVertices = []
+    for (let i = 0; i < 10000; i++) {
+      const x = (Math.random() - 0.5) * 2000
+      const y = (Math.random() - 0.5) * 2000
+      const z = -Math.random() * 3000
+      starVertices.push(x, y, z)
+    }
+
+    starGeometry.setAttribute(
+      'position',
+      new THREE.Float32BufferAttribute(starVertices, 3),
+    )
+
+    const stars = new THREE.Points(starGeometry, starMaterial)
+    scene.add(stars)
+    */
+
+    camera.position.z = 10
+    camera.position.y = 0
+  
+
+    sphere.rotation.y = -Math.PI / 2
+
+    group.rotation.offset = {
+      x: 0,
+      y: 0,
+    }
+
+    const mouse = {
+      x: undefined,
+      y: undefined,
+      down: false,
+      xPrev: undefined,
+      yPrev: undefined,
+    }
+
+    function animate() {
+      requestAnimationFrame(animate)
+      renderer.render(scene, camera)
+      group.rotation.y += 0.002
+    }
+
+    renderer.render(scene, camera)
+
+    animate()
+
+    canvasContainer.addEventListener('mousedown', ({ clientX, clientY }) => {
+      mouse.down = true
+      mouse.xPrev = clientX
+      mouse.yPrev = clientY
+    })
+
+    addEventListener('mousemove', (event) => {
+      mouse.x = ((event.clientX - innerWidth / 2) / (innerWidth / 2)) * 2 - 1
+      mouse.y = -(event.clientY / innerHeight) * 2 + 1
+
+      if (mouse.down) {
+        event.preventDefault()
+        const deltaX = event.clientX - mouse.xPrev
+        const deltaY = event.clientY - mouse.yPrev
+
+        group.rotation.offset.x += deltaY * 0.02
+        group.rotation.offset.y += deltaX * 0.02
+
+        gsap.to(group.rotation, {
+          y: group.rotation.offset.y,
+          x: group.rotation.offset.x,
+          duration: 2,
+        })
+
+        mouse.xPrev = event.clientX
+        mouse.yPrev = event.clientY
+      }
+    })
+
+    addEventListener('mouseup', () => {
+      mouse.down = false
+    })
+
+    function onResize() {
+      camera.aspect = canvasContainer.offsetWidth / canvasContainer.offsetHeight
+      camera.updateProjectionMatrix()
+      renderer.setSize(
+        canvasContainer.offsetWidth,
+        canvasContainer.offsetHeight,
+      )
+    }
+
+    window.addEventListener('resize', onResize, false)
+  }
+  useEffect(() => globe(), [])
+
   return (
     <section className="section-container">
       <main>
@@ -35,15 +203,20 @@ const Home = () => {
               secure software.
             </p>
           </div>
-          <div className="main-content-left-button">
-            <Link to="/gitsearch">
+          <Link to="/gitsearch">
+            <div className="main-content-left-button">
               <span>Iniciar</span>
-            </Link>
-          </div>
-
+            </div>
+          </Link>
           <hr />
         </div>
-        <div className="main-content-right"></div>
+        <div className="main-content-right">
+          <div className="main-content-right-globe">
+            <div id="canvasContainer">
+              <canvas></canvas>
+            </div>
+          </div>
+        </div>
       </main>
       <div className="main-content-bottom">
         <svg
@@ -70,5 +243,4 @@ const Home = () => {
         */
   )
 }
-
 export default Home

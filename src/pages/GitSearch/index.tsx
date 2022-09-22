@@ -11,7 +11,7 @@ import NameRepo_Url_Lang from '../../types/Repository'
 type Reposit = {
   id: string
   name: string
-  url: string
+  html_url: string
   language: string
 }
 
@@ -88,7 +88,6 @@ const GitSearch = () => {
         </form>
       </div>
       <div className="git-search-content">
-        <div id="line"></div>
         {perfil && (
           <>
             <div className="git-search-content-picture">
@@ -124,7 +123,7 @@ const GitSearch = () => {
               </div>
             </div>
             <div className="git-search-content-nav-data">
-              <Navbar />
+              <Navbar quantity={repositorio.length} />
               <div className="git-search-content-profile">
                 <Switch>
                   <Route path="/gitsearch/perfil">
@@ -152,7 +151,9 @@ const GitSearch = () => {
                       {repositorio?.map((repo) => (
                         <div className="card" key={repo.id}>
                           <div className="card-content-top">
-                            <span className="name-repo">{repo.name}</span>
+                            <a href={repo.html_url} target="_blank">
+                              <span className="name-repo">{repo.name}</span>
+                            </a>
                             <span className="visibility">Público</span>
                           </div>
                           <div className="card-content-bottom">

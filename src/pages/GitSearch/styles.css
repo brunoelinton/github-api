@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap');
-
 body {
     background-color: #0C1117;
     background-image: none;
@@ -9,6 +8,7 @@ body {
 nav {
     height: 60px;
     background-color: #141B22;
+    display: flex;
 }
 
 .git-search-container {
@@ -72,13 +72,12 @@ nav {
 .git-search-content {
     max-width: 1200px;
     margin: 0 auto;
-    height: auto;
+    height: max-content;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     padding: 0 20px;
-    /*background-color: #00A957;*/
     /*border-top: 1px solid rgba(255, 255, 255, 0.3);*/
 }
 
@@ -235,24 +234,28 @@ nav {
 .git-search-content-data-container-repository .card .card-content-top {
     display: flex;
     justify-content: space-between;
+
 }
 
 .card-content-top .name-repo {
     font-size: 13px;
     font-weight: bold;
     color: #189DEF;
+    display: block;
+
 }
 
 .git-search-content-data-container-repository .card-content-top .visibility {
     padding: 2px 7px;
     background-color: #0C1110;
-    font-size: 12px;
+    font-size: 10px;
     color: #88948E;
     border: 1px solid #88948E;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 25px;
 }
 
 .git-search-content-data-container-repository .card .card-content-bottom {
@@ -280,7 +283,7 @@ nav {
 
 @media (min-width: 768px) {
     nav {
-        background-color: unset;;
+        background-color: unset
     }
 
     .git-search-content {
@@ -305,7 +308,6 @@ nav {
         flex: 1;
         margin-top: 20px;
         padding-left: 20px;
-        position: sticky;
     }
 
     /**********************************/
@@ -326,6 +328,7 @@ nav {
 
     .git-search-content-data-container-repository {
         flex-direction: row;
+        justify-self: auto;
         flex-wrap: wrap;
         padding: 1% 1%;
     }
