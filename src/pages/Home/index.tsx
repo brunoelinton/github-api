@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import * as THREE from 'three';
 import gsap from 'gsap';
-import vertexShader from '../../../src/assets/shaders/vertex.glsl';
-import fragmentShader from '../../../src/assets/shaders/fragment.glsl';
-import atmosphereVertexShader from '../../../src/assets/shaders/atmosphereVertex.glsl';
-import atmosphereFragmentShader from '../../../src/assets/shaders/atmosphereFragment.glsl';
+import vertexShader from '../../assets/shaders/vertex.glsl';
+import fragmentShader from '../..assets/shaders/fragment.glsl';
+import atmosphereVertexShader from '../../assets/shaders/atmosphereVertex.glsl';
+import atmosphereFragmentShader from '../../assets/shaders/atmosphereFragment.glsl';
 import './styles.css';
 
 const Home = () => {
@@ -40,7 +40,7 @@ const Home = () => {
         uniforms: {
           globeTexture: {
             value: new THREE.TextureLoader().load(
-              '../../../src/assets/images/globe.jpg',
+              '../../assets/images/globe.jpg',
             ),
           },
         },
@@ -172,7 +172,7 @@ const Home = () => {
       <main>
         <div className="main-content-left">
           <div className="main-content-left-buttom-top">
-            <img src="../../../src/assets/images/gitbotao.png" alt="" />
+            <img src="../../assets/images/gitbotao.png" alt="" />
             <div className="main-content-left-buttom-top-text">
               <h1>Github Universe: A global developer event</h1>
               <p id="parag">Register now to get early bird passes 20% off.</p>
@@ -225,7 +225,7 @@ const Home = () => {
         </svg>
         <div className="main-content-bottom-image">
           <div className="main-content-bottom-avatar">
-            <img src="../../../src/assets/images/avatar.png" alt="" />
+            <img src="../../assets/images/avatar.png" alt="" />
           </div>
         </div>
       </div>
