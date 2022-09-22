@@ -115,6 +115,7 @@ main {
 
 .main-content-left-button {
     width: auto;
+    padding-top: 3px;
     background-color: #00A957;
     height: 45px;
     display: flex;
@@ -125,6 +126,15 @@ main {
     font-weight: bold;
     margin-bottom: 30px;
     margin-top: 20px;
+    border-bottom: 5px solid transparent;
+    transition: all 0.1s  ease-in-out 0.1s;
+}
+
+.main-content-left-button:hover {
+    border-bottom: 5px solid #fff;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: all 0.1s  ease-in-out 0.1s;
 }
 
 .main-content-bottom {
