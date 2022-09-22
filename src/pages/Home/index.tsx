@@ -43,7 +43,7 @@ const Home = () => {
         uniforms: {
           globeTexture: {
             value: new THREE.TextureLoader().load(
-              '../../assets/images/globe.jpg',
+              Globe,
             ),
           },
         },
