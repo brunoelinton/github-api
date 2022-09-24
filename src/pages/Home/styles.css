@@ -243,14 +243,24 @@ main {
 @media (min-width: 1400px) {
     .main-content-left {
         font-size: 32px;
-        height: 600px
+        height: 600px;
+        width: 45%;
     }
 
     .main-content-right {
         height: 100%;
+        width: 55%;
     }
 
     .main-content-left-button {
         height: auto;
+    }
+
+    .main-content-right-globe {
+        justify-content: end;
+    }
+
+    canvas {
+        width: 100%;
     }
 }
