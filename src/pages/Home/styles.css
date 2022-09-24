@@ -127,14 +127,14 @@ main {
     margin-bottom: 30px;
     margin-top: 20px;
     border-bottom: 5px solid transparent;
-    transition: all 0.1s  ease-in-out 0.1s;
+    transition: all 0.25s  ease-in-out 0.25s;
 }
 
 .main-content-left-button:hover {
     border-bottom: 5px solid #fff;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    transition: all 0.1s  ease-in-out 0.1s;
+    transition: all 0.25s  ease-in-out 0.25s;
 }
 
 .main-content-bottom {
@@ -215,6 +215,12 @@ main {
     body {
         background-size: 170% 140%;
     }
+
+    .main-content-left {
+        font-size: large;
+        height: 380px;
+    }
+
     
     .main-content-bottom-image {
         width: 100%;
@@ -230,6 +236,21 @@ main {
     .main-content-bottom-avatar img {
         margin-top: -200px;
         width: 300px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1400px) {
+    .main-content-left {
+        font-size: 32px;
+        height: 600px
+    }
+
+    .main-content-right {
+        height: 100%;
+    }
+
+    .main-content-left-button {
         height: auto;
     }
 }
